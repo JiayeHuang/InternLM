@@ -1,0 +1,41 @@
+全链路开源体系
+
+1. 模型体系
+> 7B - 适用于轻量级研究应用的模型
+> 20B - 综合性更强，更复杂的实用场景
+模型的基座 - InternLM2-BASE， 基于base，衍生出新的模型基座，应用在不同场景
+	> InterLM2：通用语言能力，是大部分应用优先选择的基座
+	> InternLM2-Chat：经过SFT和RLHF,可进行指令遵循，共情聊天及调用工具等操作
+
+2. 数据清洗技术
+多维度数据价值评估：基于文本质量，信息质量，信息密度等维度评估并提升数据价值
+针对性进行数据补齐
+提取高质量语料库内的语料信息，丰富数据库
+
+3. 应用 
+超长上下文，推理/数学/代码，指令跟随，多轮工具调用，内生计算能力
+例：行程规划，文本故事生成，工具调用，数学计算求解
+
+4.从模型到应用
+简单业务场景：模型选型 > 模型评测 > 模型部署
+在复杂业务场景下，若算力不够，训练时可部分微调参数；考虑环境交互（外部API)>构建智能体等
+
+5.全链条工具体系
+数据：书生万卷 https://opendatalab.org.cn/
+预训练：InternLM-Train
+微调：XTuner - 增量续训（让模型学习特定垂直领域新知识），有监督微调（指令对话，注入少量领域知识）
+	> 支持多种微调算法 （有哪些？），覆盖各类SFT场景（举例？）
+	> 支持加载开源数据集：HuggingFace，ModelScope
+	> 最低只需8GB显存即可支持7B模型 
+部署：LMDeploy
+	> 接口：Python,gRPC,RESTful
+	> 轻量化：4bit权重，8bit k/v
+	> 推理引擎：turbomind,pytorch (支持交互式，或非交互式的推理）
+	> 服务：openai-server，gradio,trition inference server
+评测：OpenCompass
+	> CompassRank:大语言模型榜单，多模态模型榜单
+	> CompassKit：数据污染检查（GSM-8K,MMLU等主流数据集的污染监测），模型推理接入，长文本能力评测，中英文双语主观评测
+	> CompassHub 高质量测评计准社区
+应用：Lagent AgentLego
+	> 智能体框架 Lagent:React, ReWoo,AutoGPT，灵活支持各种大语言模型Llama，GPT-3.5/4
+	> Agent Lego：多模态智能体工具箱，支持视觉/多模态相关领域前沿算法的调用
