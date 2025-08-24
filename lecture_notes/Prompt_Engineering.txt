@@ -1,0 +1,15 @@
+What is Prompt?
+- A prompt is the input or instruction you give to an AI model (like me) to get a desired response.
+
+Prompt Engineering
+- The practice of designing and refining prompts to get the most accurate, useful, or creative responses from an AI model
+- Principles: Keep prompts simple and clear, Provide context and examples, Break down complex tasks into smaller steps, Integrate external tools when needed, Test and refine prompts systematically
+- Tips: Use role-playing to guide responses, Provide illustrative examples, Apply Chain-of-Thought (CoT) reasoning, Use formatting to distinguish different semantics， Incorporate emotional and material incentives
+- CRIPSE: Capability and Role, Insight, Statement, Personality, Experiment
+- Co-Star: Context, Objective, Style, Tone, Audience, Response Format
+
+Optimizing Prompts for Models with Reasoning Abilities
+- For simple tasks, use non-reasoning models with concise prompts 
+- Minimize unnecessary examples
+- Define the model’s role and tone briefly
+- Limit the level and depth of reasoning in the output, can ask for reasoning procedure
